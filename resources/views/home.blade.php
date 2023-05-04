@@ -3,14 +3,24 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
+        <title>Laravel Model Controller</title>
          @vite('resources/js/app.js')
     </head>
     <body>
-        <div class="container">
-            <h1>Template Classe 89</h1>
-            <img src="{{ Vite::asset('resources/img/pluto.webp') }}" alt="" srcset="">
-        </div>
-
+        <div class="container p-5">
+            <div class="row">
+                <h1 class="text-center pb-5">Database Films</h1>
+            @foreach ($movies as $movie)
+            <div class="card col-4">
+                <div class="card-body text-center">
+                  <h5 class="card-title">{{ $movie->title }}</h5>
+                  <h6 class="card-subtitle mb-2 text-body-secondary">Titolo originale: {{ $movie->original_title }}</h6>
+                  <p class="card-text">Nazionalità: {{ $movie->nationality }}</p>
+                  <p class="card-text">Data di Uscita: {{ $movie->date }}</p>
+                  <p class="card-text">Voto: {{ $movie->vote }}</p>
+                  <a href="#" class="card-link">DETTAGLI</a>
+                </div>
+            </div>
+            @endforeach
     </body>
 </html>
