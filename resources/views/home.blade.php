@@ -9,18 +9,20 @@
     <body>
         <div class="container p-5">
             <div class="row">
-                <h1 class="text-center pb-5">Database Films</h1>
+                <h1 class="text-center pb-5 text-white">Database Films</h1>
             @foreach ($movies as $movie)
-            <div class="card col-4">
-                <div class="card-body text-center">
-                  <h5 class="card-title">{{ $movie->title }}</h5>
-                  <h6 class="card-subtitle mb-2 text-body-secondary">Titolo originale: {{ $movie->original_title }}</h6>
-                  <p class="card-text">Nazionalità: {{ $movie->nationality }}</p>
-                  <p class="card-text">Data di Uscita: {{ $movie->date }}</p>
-                  <p class="card-text">Voto: {{ $movie->vote }}</p>
-                  <a href="#" class="card-link">DETTAGLI</a>
+                <div class="col-4 mb-3">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">{{ $movie->title }}</h4>
+                            <p class="card-text">Titolo originale: {{ $movie->original_title }}</p>
+                            <p class="card-text">Nazionalità: {{ $movie->nationality }}</p>
+                            <p class="card-text">Data di Uscita: {{ $movie->date }}</p>
+                            <p class="card-text">Voto: {{ $movie->vote }}</p>
+                            <a href="{{ route('film', $movie->id) }}" class="card-link">DETTAGLI</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
             @endforeach
     </body>
 </html>
