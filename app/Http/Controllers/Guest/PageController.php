@@ -11,6 +11,8 @@ class PageController extends Controller
     public function index(){
 
         $movies = Movie::all();
+        $movies = Movie::all()->sortBy('title');
+
 
         return view('home', compact('movies'));
     }
